@@ -11,19 +11,24 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Copy Message-ID"/>
   <Description DefaultValue="Adds a button that copies the Internet Message-ID of the opened email."/>
-  <IconUrl DefaultValue="YOUR_PAGES_BASE/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="YOUR_PAGES_BASE/icon-80.png"/>
-  <SupportUrl DefaultValue="YOUR_PAGES_BASE/"/>
+  <IconUrl DefaultValue="https://vladobb.github.io/owa-copy-message-id/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://vladobb.github.io/owa-copy-message-id/icon-80.png"/>
+  <SupportUrl DefaultValue="https://vladobb.github.io/owa-copy-message-id/"/>
 
-  <Hosts><Host Name="Mailbox"/></Hosts>
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
 
-  <!-- 1.8+ covers internetMessageId in OWA -->
-  <Requirements><Sets DefaultMinVersion="1.8"><Set Name="Mailbox"/></Sets></Requirements>
+  <Requirements>
+    <Sets DefaultMinVersion="1.8">
+      <Set Name="Mailbox"/>
+    </Sets>
+  </Requirements>
 
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="YOUR_PAGES_BASE/functions.html"/>
+        <SourceLocation DefaultValue="https://vladobb.github.io/owa-copy-message-id/functions.html"/>
       </DesktopSettings>
     </Form>
   </FormSettings>
@@ -35,7 +40,12 @@
   </Rule>
 
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
-    <Requirements><bt:Sets DefaultMinVersion="1.8"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.8">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+
     <Hosts>
       <Host xsi:type="Mailbox">
         <Runtimes>
@@ -67,12 +77,12 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="icon16" DefaultValue="YOUR_PAGES_BASE/icon-16.png"/>
-        <bt:Image id="icon32" DefaultValue="YOUR_PAGES_BASE/icon-32.png"/>
-        <bt:Image id="icon80" DefaultValue="YOUR_PAGES_BASE/icon-80.png"/>
+        <bt:Image id="icon16" DefaultValue="https://vladobb.github.io/owa-copy-message-id/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://vladobb.github.io/owa-copy-message-id/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://vladobb.github.io/owa-copy-message-id/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Functions.Url" DefaultValue="YOUR_PAGES_BASE/functions.html"/>
+        <bt:Url id="Functions.Url" DefaultValue="https://vladobb.github.io/owa-copy-message-id/functions.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="copyMIDLabel" DefaultValue="Copy Message-ID"/>
