@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+  xsi:type="MailApp">
+
+  <Id>6b7b9f9a-7ab0-4f2b-bc0a-copy-mid-demo</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Name</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Copy Message-ID"/>
+  <Description DefaultValue="Adds a button that copies the Internet Message-ID of the opened email."/>
+  <IconUrl DefaultValue="YOUR_PAGES_BASE/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="YOUR_PAGES_BASE/icon-80.png"/>
+  <SupportUrl DefaultValue="YOUR_PAGES_BASE/"/>
+
+  <Hosts><Host Name="Mailbox"/></Hosts>
+
+  <!-- 1.8+ covers internetMessageId in OWA -->
+  <Requirements><Sets DefaultMinVersion="1.8"><Set Name="Mailbox"/></Sets></Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="YOUR_PAGES_BASE/functions.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadItem</Permissions>
+
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+    <Requirements><bt:Sets DefaultMinVersion="1.8"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+    <Hosts>
+      <Host xsi:type="Mailbox">
+        <Runtimes>
+          <Runtime resid="Functions.Url" lifetime="long"/>
+        </Runtimes>
+        <ExtensionPoint xsi:type="MessageReadCommandSurface">
+          <OfficeTab id="TabDefault">
+            <Group id="group1" label="Message tools">
+              <Control xsi:type="Button" id="copyMIDButton">
+                <Label resid="copyMIDLabel"/>
+                <Supertip>
+                  <Title resid="copyMIDLabel"/>
+                  <Description resid="copyMIDDesc"/>
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="icon16"/>
+                  <bt:Image size="32" resid="icon32"/>
+                  <bt:Image size="80" resid="icon80"/>
+                </Icon>
+                <Action xsi:type="ExecuteFunction">
+                  <FunctionName>copyMessageId</FunctionName>
+                </Action>
+              </Control>
+            </Group>
+          </OfficeTab>
+        </ExtensionPoint>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="YOUR_PAGES_BASE/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="YOUR_PAGES_BASE/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="YOUR_PAGES_BASE/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="Functions.Url" DefaultValue="YOUR_PAGES_BASE/functions.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="copyMIDLabel" DefaultValue="Copy Message-ID"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="copyMIDDesc" DefaultValue="Copy the Internet Message-ID of the current message to your clipboard."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
